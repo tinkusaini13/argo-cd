@@ -1,16 +1,12 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: v1
+kind: Service
 metadata:
-  name: nginx-ingress
+  name: nginx-app-service
+  labels:
+    run: nginx-app-service
 spec:
-  rules:
-    - host: 192.168.1.136
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx-service
-                port:
-                  number: 80
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: nginx-app
