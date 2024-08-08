@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: spring-boot
-          image: my-spring-boot-app:latest
+          image: jdk
           ports:
             - containerPort: 8080
           livenessProbe:
